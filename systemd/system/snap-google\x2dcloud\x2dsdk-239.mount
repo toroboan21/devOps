@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount unit for google-cloud-sdk, revision 239
+Before=snapd.service
+After=zfs-mount.service
+
+[Mount]
+What=/var/lib/snapd/snaps/google-cloud-sdk_239.snap
+Where=/snap/google-cloud-sdk/239
+Type=squashfs
+Options=nodev,ro,x-gdu.hide,x-gvfs-hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=multi-user.target
